@@ -23,8 +23,9 @@ export async function POST(request: Request) {
 
     // createChatCompletion (get response from GPT-4)
     const response = await openai.createChatCompletion({
-        model: 'gpt-4',
+        model: 'gpt-4-turbo-2024-04-09',    // Change model name based on current model version in OpenAI
         stream: true,
+        max_tokens: 256,
         messages: [
             { role: "system", content: "You are a helpful assistant. You explain software concepts simply to intermediate programmers."},
             ...messages
